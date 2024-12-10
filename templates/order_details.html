@@ -1,0 +1,24 @@
+{% extends 'base.html' %}
+{% block title %}Order Details{% endblock %}
+{% block content %}
+<div class="row">
+    <div class="col-md-12">
+        <h2>Order Details</h2>
+        <p>Order #: {{ order.order_number }}</p>
+        <p>Date Ordered: {{ order.date_ordered }}</p>
+        <h3>Items in this Order:</h3>
+        <ul>
+            {% if order.product_1 %}
+                <li>{{ order.quantity_1 }} x Size: {{ order.size_1 }} of Product ID: {{ order.product_1 }}</li>
+            {% endif %}
+            {% if order.product_2 %}
+                <li>{{ order.quantity_2 }} x Size: {{ order.size_2 }} of Product ID: {{ order.product_2 }}</li>
+            {% endif %}
+            {% if order.product_3 %}
+                <li>{{ order.quantity_3 }} x Size: {{ order.size_3 }} of Product ID: {{ order.product_3 }}</li>
+            {% endif %}
+        </ul>
+        <a href="{{ url_for('account') }}" class="btn btn-primary">Back to Account</a>
+    </div>
+</div>
+{% endblock %}
